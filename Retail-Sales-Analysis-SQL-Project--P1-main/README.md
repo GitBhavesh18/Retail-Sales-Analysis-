@@ -1,45 +1,39 @@
-# Retail Sales Analysis SQL Project
+
+# Retail Sales Analysis SQL Project (Personal Portfolio)
 
 ## Project Overview
 
-**Project Title**: Retail Sales Analysis  
-**Level**: Beginner  
-**Database**: `p1_retail_db`
 
-This project is designed to demonstrate SQL skills and techniques typically used by data analysts to explore, clean, and analyze retail sales data. The project involves setting up a retail sales database, performing exploratory data analysis (EDA), and answering specific business questions through SQL queries. This project is ideal for those who are starting their journey in data analysis and want to build a solid foundation in SQL.
+**Project Title**: Retail Sales Analysis (MySQL)  
+**Author**: Bhavesh  
+**Level**: Beginner/Portfolio  
+**Database**: `retail_sales`
+
+This is my personal project to practice and showcase SQL skills for data analysis. I worked with a real-world retail sales dataset, imported it into MySQL, and wrote SQL queries to extract business insights. The project covers database setup, data cleaning, exploratory analysis, and answering business questions using SQL. It demonstrates my ability to work hands-on with data and MySQL for analytics.
 
 ## Objectives
 
-1. **Set up a retail sales database**: Create and populate a retail sales database with the provided sales data.
-2. **Data Cleaning**: Identify and remove any records with missing or null values.
-3. **Exploratory Data Analysis (EDA)**: Perform basic exploratory data analysis to understand the dataset.
-4. **Business Analysis**: Use SQL to answer specific business questions and derive insights from the sales data.
+1. **Set up a MySQL database**: Create and populate a retail sales database using the provided CSV data.
+2. **Data Cleaning**: Identify and remove records with missing or null values.
+3. **Exploratory Data Analysis (EDA)**: Use SQL to understand the dataset and its structure.
+4. **Business Analysis**: Write SQL queries to answer business questions and generate insights.
 
 ## Project Structure
 
+
 ### 1. Database Setup
 
-- **Database Creation**: The project starts by creating a database named `p1_retail_db`.
-- **Table Creation**: A table named `retail_sales` is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
+- **Database Creation**: I created a MySQL database named `retail_sales`.
+- **Table Creation**: The table structure matches the columns in the provided CSV file (`SQL - Retail Sales Analysis_utf .csv`).
+
 
 ```sql
-CREATE DATABASE p1_retail_db;
-
-CREATE TABLE retail_sales
-(
-    transactions_id INT PRIMARY KEY,
-    sale_date DATE,	
-    sale_time TIME,
-    customer_id INT,	
-    gender VARCHAR(10),
-    age INT,
-    category VARCHAR(35),
-    quantity INT,
-    price_per_unit FLOAT,	
-    cogs FLOAT,
-    total_sale FLOAT
-);
+CREATE DATABASE retail_sales;
+USE retail_sales;
+-- Table creation SQL based on CSV columns
+-- (See actual table structure in your SQL script)
 ```
+
 
 ### 2. Data Exploration & Cleaning
 
@@ -48,27 +42,19 @@ CREATE TABLE retail_sales
 - **Category Count**: Identify all unique product categories in the dataset.
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 
+
 ```sql
 SELECT COUNT(*) FROM retail_sales;
 SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
 SELECT DISTINCT category FROM retail_sales;
-
-SELECT * FROM retail_sales
-WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
-
-DELETE FROM retail_sales
-WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+-- Check and remove nulls as needed
 ```
 
-### 3. Data Analysis & Findings
 
-The following SQL queries were developed to answer specific business questions:
+### 3. Data Analysis & Insights
+
+
+I wrote and executed several SQL queries (see `sql_query_p1.sql`) to answer business questions, such as:
 
 1. **Write a SQL query to retrieve all columns for sales made on '2022-11-05**:
 ```sql
@@ -187,41 +173,37 @@ FROM hourly_sale
 GROUP BY shift
 ```
 
-## Findings
 
-- **Customer Demographics**: The dataset includes customers from various age groups, with sales distributed across different categories such as Clothing and Beauty.
-- **High-Value Transactions**: Several transactions had a total sale amount greater than 1000, indicating premium purchases.
-- **Sales Trends**: Monthly analysis shows variations in sales, helping identify peak seasons.
-- **Customer Insights**: The analysis identifies the top-spending customers and the most popular product categories.
+## Key Findings
 
-## Reports
+- The dataset covers multiple product categories and customer demographics.
+- Identified top-selling products, high-value transactions, and sales trends by month and shift.
+- Segmented customers and found top spenders using SQL aggregation and filtering.
 
-- **Sales Summary**: A detailed report summarizing total sales, customer demographics, and category performance.
-- **Trend Analysis**: Insights into sales trends across different months and shifts.
-- **Customer Insights**: Reports on top customers and unique customer counts per category.
+
+## Reports & Deliverables
+
+- SQL script: `sql_query_p1.sql` (contains all analysis queries)
+- Data file: `SQL - Retail Sales Analysis_utf .csv`
+- This README summarizing the project and findings
+
 
 ## Conclusion
 
-This project serves as a comprehensive introduction to SQL for data analysts, covering database setup, data cleaning, exploratory data analysis, and business-driven SQL queries. The findings from this project can help drive business decisions by understanding sales patterns, customer behavior, and product performance.
+This project demonstrates my ability to work with real-world data in MySQL, perform data cleaning, write complex SQL queries, and extract actionable business insights. It is part of my data analytics portfolio.
+
 
 ## How to Use
 
-1. **Clone the Repository**: Clone this project repository from GitHub.
-2. **Set Up the Database**: Run the SQL scripts provided in the `database_setup.sql` file to create and populate the database.
-3. **Run the Queries**: Use the SQL queries provided in the `analysis_queries.sql` file to perform your analysis.
-4. **Explore and Modify**: Feel free to modify the queries to explore different aspects of the dataset or answer additional business questions.
+1. Clone this repository.
+2. Set up MySQL and create the `retail_sales` database.
+3. Import the CSV data into a table matching the CSV columns.
+4. Run the queries from `sql_query_p1.sql` in MySQL Workbench or your preferred client.
+5. Explore and modify queries to gain further insights.
 
-## Author - Zero Analyst
 
-This project is part of my portfolio, showcasing the SQL skills essential for data analyst roles. If you have any questions, feedback, or would like to collaborate, feel free to get in touch!
+## Author
 
-### Stay Updated and Join the Community
+Bhavesh
 
-For more content on SQL, data analysis, and other data-related topics, make sure to follow me on social media and join our community:
-
-- **YouTube**: [Subscribe to my channel for tutorials and insights](https://www.youtube.com/@zero_analyst)
-- **Instagram**: [Follow me for daily tips and updates](https://www.instagram.com/zero_analyst/)
-- **LinkedIn**: [Connect with me professionally](https://www.linkedin.com/in/najirr)
-- **Discord**: [Join our community to learn and grow together](https://discord.gg/36h5f2Z5PK)
-
-Thank you for your support, and I look forward to connecting with you!
+This project is part of my personal portfolio. If you have questions or feedback, feel free to reach out!
